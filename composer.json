@@ -1,6 +1,6 @@
 {
-  "name": "zeus/terminal",
-  "description": "Terminal",
+  "name": "raphaeu/terminal",
+  "description": "A command line menu helper in PHP",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
