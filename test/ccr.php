@@ -25,19 +25,31 @@ COMANDO CUSTOMIZADO
 
 $terminal = new Terminal('ccr', '1.1', 'Rafael Aguiar <raphaeu.aguiar@gmail.com>', $logo);
 
+
 # PASSANDO UMA FUNÇÃO COMO PARAMETRO
 $terminal->add(new Parameter(['-l','--list'], 'Lista as coisa da pasta', function(){echo shell_exec('ls -la');}));
 
 # SEM FUNÇÃO DE PARAMETRO
-$terminal->add(new Parameter(['-p'], 'Comando P'));
-$terminal->add(new Parameter(['-f'], 'comando F'));
+$terminal->add(new Parameter(['-p'], 'Comando P', 'aqui'));
+$terminal->add(new Parameter(['-f'], 'comando F', true));
 $terminal->add(new Parameter(['-g'], 'Commndo G'));
 
 # INICIANDO
 $terminal->run();
 
+
+echo $terminal->getValue();
+
+
+
+
+
 # TARGET DA AÇÃO
-echo $terminal->getTarget();
+echo "Targets";
+print_r($terminal->getTargets());
+
+
+exit;
 
 ## FORMAS DE USAR
 #################
