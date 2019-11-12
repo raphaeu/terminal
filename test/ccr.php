@@ -30,23 +30,26 @@ $terminal = new Terminal('ccr', '1.1', 'Rafael Aguiar <raphaeu.aguiar@gmail.com>
 $terminal->add(new Parameter(['-l','--list'], 'Lista as coisa da pasta', function(){echo shell_exec('ls -la');}));
 
 # SEM FUNÇÃO DE PARAMETRO
-$terminal->add(new Parameter(['-p'], 'Comando P', 'aqui'));
-$terminal->add(new Parameter(['-f'], 'comando F', true));
+$terminal->add(new Parameter(['-p'], 'Comando P', 'function1'));
+$terminal->add(new Parameter(['-f'], 'comando F'), true);
 $terminal->add(new Parameter(['-g'], 'Commndo G'));
 
 # INICIANDO
 $terminal->run();
 
 
-echo $terminal->getValue();
+echo $terminal->getValue('-p');
 
 
-
+function function1()
+{
+    echo "test function 1";
+}
 
 
 # TARGET DA AÇÃO
 echo "Targets";
-print_r($terminal->getTargets());
+print_r($terminal->getTarget());
 
 
 exit;

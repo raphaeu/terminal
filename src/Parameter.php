@@ -21,7 +21,11 @@ class Parameter
         $this->items = $items;
         $this->description = $description;
 
-        $this->function = $function?\Closure::fromCallable($function):null;
+        #$this->function = $function?\Closure::fromCallable($function):null;
+        if ($function){
+            $reflexion = new \ReflectionFunction($function);
+            $this->function = $reflexion->getClosure();
+        }
     }
 
     public function getItems()
