@@ -13,13 +13,17 @@ class Parameter
     private $items = [];
     private $description;
     private $value;
+    private $targets;
     public $function;
+    private $targetIndex =0 ;
 
-    function __construct($items, $description, $function=null)
+    function __construct($items, $description, $function=null, $targets=[])
     {
+
         if (!is_array($items)) $items = [$items];
         $this->items = $items;
         $this->description = $description;
+        $this->targets = $targets;
 
         #$this->function = $function?\Closure::fromCallable($function):null;
         if ($function){
@@ -38,14 +42,22 @@ class Parameter
         return $this->description;
     }
 
-    public function setValue($value)
+    public function setValue($target, $value)
     {
-        $this->value = $value;
+        $this->value[$target] = $value;
     }
 
-    public function getValue()
+    public function getValue($target=null)
     {
-        return $this->value;
+        if (is_null($target))
+            return $this->value[$this->getTarget()[0][0]];
+        else
+            return $this->value[$target];
+    }
+
+    public function getTarget()
+    {
+        return $this->targets;
     }
 
     public function run()
