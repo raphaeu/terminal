@@ -178,7 +178,7 @@ class Terminal
             $this->showHelp(" parametro(s) informado nao existem ".Colorize::underline(). implode($argv, ', '). Colorize::clear());
         }
 
-        echo $this->getLogo();
+       // echo $this->getLogo();
 
     }
 }
