@@ -29,7 +29,7 @@ class Terminal
         $this->add(new Parameter(['--help', '-h'], 'Exibe ajuda do comando', function (){$this->showHelp();}));
     }
 
-    private function getLogo()
+    public function getLogo()
     {
         echo Colorize::blue();
         echo $this->logo;
@@ -178,7 +178,6 @@ class Terminal
             $this->showHelp(" parametro(s) informado nao existem ".Colorize::underline(). implode($argv, ', '). Colorize::clear());
         }
 
-        echo $this->getLogo();
 
     }
 }
