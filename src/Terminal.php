@@ -139,7 +139,7 @@ class Terminal
 
     public function run()
     {
-        global $argv, $argc;
+        global $argv;
         unset($argv[0]);
 
         if (count($argv) > 0)
@@ -177,7 +177,6 @@ class Terminal
         if (count($argv)){
             $this->showHelp(" parametro(s) informado nao existem ".Colorize::underline(). implode($argv, ', '). Colorize::clear());
         }
-
 
     }
 }
