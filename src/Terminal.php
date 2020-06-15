@@ -48,8 +48,10 @@ class Terminal
         if ($msgErro)
         {
             $this->showError($msgErro);
+        }else{
+
+            $this->getHelp();
         }
-        $this->getHelp();
         exit;
     }
 
